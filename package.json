@@ -7,17 +7,21 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test",
+    "test": "./node_modules/.bin/truffle test",
+    "compile": "./node_modules/.bin/truffle compile",
+    "ganache-cli": "./node_modules/.bin/ganache-cli -a 99 -i 95 -e 1000 -l 8000000 --noVMErrorsOnRPCResponse -s meow",
     "generate": "node ./scripts/generate.js"
   },
   "author": "Peter M. Murray <pete@pmurray.com>",
   "license": "MIT",
   "devDependencies": {
     "@optionality.io/evm-asm": "^0.1.2",
-    "ethereumjs-wallet": "^0.6.0",
-    "ethjs-query": "^0.3.3",
+    "bignumber.js": "^7.2.1",
+    "ethereumjs-wallet": "0.6.3",
+    "ethjs-query": "0.3.8",
     "expect": "^22.1.0",
-    "truffle": "5.0.0-beta.1",
+    "truffle": "5.0.3",
+    "ganache-cli": "6.1.8",
     "truffle-wallet-provider": "github:crypedit/truffle-wallet-provider"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.3;
 
 /*
 The MIT License (MIT)
@@ -52,7 +52,7 @@ contract CloneFactory16 {
       extcodecopy(query, other, 0, 0x29)
 
       result := and(
-        eq(mload(clone), mload(other)), 
+        eq(mload(clone), mload(other)),
         eq(mload(add(clone, 0x20)), mload(add(other, 0x20)))
       )
     }

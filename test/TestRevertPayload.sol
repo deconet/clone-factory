@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.3;
 
 //solhint-disable max-line-length
 //solhint-disable no-inline-assembly
@@ -6,7 +6,7 @@ pragma solidity ^0.4.23;
 contract TestRevertPayload {
   event MessageReceived(string message);
 
-  function getRevertMessage(address thingClone) public returns (string) {
+  function getRevertMessage(address thingClone) public returns (string memory) {
     bytes4 sig = bytes4(keccak256("epicfail()"));
     uint size;
     bytes memory buffer;

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.3;
 
 import "./Thing.sol";
 import "../contracts/CloneFactory.sol";
@@ -18,7 +18,7 @@ contract ThingFactory is CloneFactory {
     createClone(libraryAddress);
   }
 
-  function createThing(string _name, uint _value) public {
+  function createThing(string memory _name, uint _value) public {
     address clone = createClone(libraryAddress);
     Thing(clone).init(_name, _value);
     emit ThingCreated(clone, libraryAddress);
@@ -28,7 +28,7 @@ contract ThingFactory is CloneFactory {
     return isClone(libraryAddress, thing);
   }
 
-  function incrementThings(address[] things) public returns (bool) {
+  function incrementThings(address[] memory things) public returns (bool) {
     for(uint i = 0; i < things.length; i++) {
       require(isThing(things[i]), "Must all be things");
       Thing(things[i]).increment();

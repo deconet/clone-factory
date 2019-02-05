@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.3;
 
 //solhint-disable max-line-length
 //solhint-disable no-inline-assembly
@@ -14,7 +14,7 @@ contract Thing {
     name = "master"; // force default deployment to be init'd
   }
 
-  function init(string _name, uint _value) public {
+  function init(string memory _name, uint _value) public {
     require(bytes(name).length == 0); // ensure not init'd already.
     require(bytes(_name).length > 0);
 
@@ -26,7 +26,7 @@ contract Thing {
     emit ThingEvent(address(this), name, value);
   }
 
-  function epicfail() public returns (string){
+  function epicfail() public returns (string memory){
     value++;
     require(false, "Hello world!");
     return "Goodbye sweet world!";

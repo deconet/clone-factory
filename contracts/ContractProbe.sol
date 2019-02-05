@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.3;
 
 /*
 The MIT License (MIT)
@@ -50,17 +50,17 @@ contract ContractProbe {
                 mstore(code, size)
                 extcodecopy(_addr, add(code, 0x20), 0, size)
             }
-            for (i = 0; matches && i < 9; i++) { 
+            for (i = 0; matches && i < 9; i++) {
                 matches = code[i] == clone[i];
             }
             for (i = 0; matches && i < 15; i++) {
                 if (i == 4) {
-                    matches = code[code.length - i - 1] == byte(uint(clone[45 - i - 1]) - (45 - size));
+                    matches = code[code.length - i - 1] == byte(uint8(clone[45 - i - 1]) - uint8(45 - size));
                 } else {
                     matches = code[code.length - i - 1] == clone[45 - i - 1];
                 }
             }
-            if (code[9] != byte(0x73 - (45 - size))) {
+            if (code[9] != byte(0x73 - uint8(45 - size))) {
                 matches = false;
             }
             uint forwardedToBuffer;
